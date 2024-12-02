@@ -17,7 +17,7 @@ class TaskController extends Controller
         $request->validate([
             'status'      => 'nullable | in:completed,pending',
             'priority'    => 'nullable | in:low,medium,high',
-            'category_id' => 'nullable | exists:categories,id',
+            'category' => 'nullable | exists:categories,name',
         ]);
 
         $query = Task::with('category');
